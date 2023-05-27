@@ -1,7 +1,13 @@
-<script setup lang="ts">
-import ThingsBoardHome from '@/views/home/ThingsBoardHome.vue'
-</script>
-
 <template>
-  <ThingsBoardHome></ThingsBoardHome>
+  <RouterView class="conatiner"></RouterView>
 </template>
+
+<style lang="scss">
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

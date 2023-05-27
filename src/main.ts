@@ -8,6 +8,8 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import 'element-plus/theme-chalk/dark/css-vars.css'
 import 'virtual:svg-icons-register'
 import globalComponentsRegistry from '@/components/index.ts'
+import '@/styles/index.scss'
+import router from '@/router/index.ts'
 
 const app = createApp(App)
 app.use(ElementPlus, {
@@ -17,6 +19,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
 app.use(globalComponentsRegistry)
+app.use(router)
 app.mount('#app')
 
 console.log('import.meta.env', import.meta.env)
