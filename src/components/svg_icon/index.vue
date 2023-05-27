@@ -20,7 +20,7 @@ const props = defineProps({
     type: String,
   },
 })
-const symbolId = computed(() => `#${props.prefix}-${props.name}`)
+const symbolId = computed(() => `${props.prefix}-${props.name}`)
 </script>
 
 <template>
