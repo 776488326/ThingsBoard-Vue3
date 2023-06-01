@@ -1,6 +1,7 @@
 <template>
   <main id="main">
-    <RouterView class="conatiner"></RouterView></main>
+    <RouterView class="conatiner"></RouterView>
+  </main>
 </template>
 
 <style lang="scss">

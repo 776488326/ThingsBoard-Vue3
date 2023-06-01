@@ -1,9 +1,9 @@
 export const constantRoutes = [
   {
-    path: "/",
+    path: '/',
     redirect: {
-      name: "home"
-    }
+      name: 'home',
+    },
   },
   {
     path: '/home',

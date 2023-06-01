@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*","proxy.conf.ts"]
+      "@/*": ["src/*", "proxy.conf.ts"]
     },
     "target": "ES2020",
     "useDefineForClassFields": true,

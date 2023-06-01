@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import { requestLogin } from "@/api/index.ts";
+import { requestLogin } from '@/api/index.ts'
 import { Message, Lock } from '@element-plus/icons-vue'
-import { reactive, ref } from "vue";
+import { reactive, ref } from 'vue'
 const loginForm = reactive({
-  username: "",
-  password: ""
-});
-let ischecked = ref(false);
+  username: '',
+  password: '',
+})
+let ischecked = ref(false)
 
-async function submitForm(){
-  const res = await requestLogin(loginForm);
-  if(ischecked.value){
-
+async function submitForm() {
+  const res = await requestLogin(loginForm)
+  if (ischecked.value) {
   }
-  console.log(res);
+  console.log(res)
 }
 </script>
 
@@ -22,12 +21,19 @@ async function submitForm(){
     <el-scrollbar height="700px" id="login_container">
       <form>
         <header id="login_logo">
-          <img id="img" aria-label="logo" src="/logo_title_white.svg" alt="login_icon">
+          <img
+            id="img"
+            aria-label="logo"
+            src="/logo_title_white.svg"
+            alt="login_icon"
+          />
         </header>
         <label id="label">Log in to see ThingsBoard in action</label>
         <fieldset id="login_btn">
           <el-button class="elb" size="default" @click="">Google登录</el-button>
-          <el-button class="elb" size="default" @click="">Facebook登录</el-button>
+          <el-button class="elb" size="default" @click="">
+            Facebook登录
+          </el-button>
           <el-button class="elb" size="default" @click="">Github登录</el-button>
           <el-button class="elb" size="default" @click="">Apple登录</el-button>
         </fieldset>
@@ -37,21 +43,33 @@ async function submitForm(){
           <section class="right"></section>
         </fieldset>
         <fieldset id="login_form">
-          <el-input v-model="loginForm.username" placeholder="用户名（电子邮件）*"  type="email" :prefix-icon="Message"></el-input>
-          <el-input v-model="loginForm.password" placeholder="密码" type="password" show-password :prefix-icon="Lock"></el-input>
-          <el-checkbox v-model="ischecked" label="记住密码"/>
+          <el-input
+            v-model="loginForm.username"
+            placeholder="用户名（电子邮件）*"
+            type="email"
+            :prefix-icon="Message"
+          ></el-input>
+          <el-input
+            v-model="loginForm.password"
+            placeholder="密码"
+            type="password"
+            show-password
+            :prefix-icon="Lock"
+          ></el-input>
+          <el-checkbox v-model="ischecked" label="记住密码" />
         </fieldset>
         <fieldset id="login_submit">
-          <el-button id="submit" type="primary" @click="submitForm" >登录</el-button>
+          <el-button id="submit" type="primary" @click="submitForm">
+            登录
+          </el-button>
         </fieldset>
       </form>
     </el-scrollbar>
-
   </div>
 </template>
 
 <style scoped lang="scss">
-@import "../../styles/variable.scss";
+@import '../../styles/variable.scss';
 
 .container {
   display: flex;
@@ -61,7 +79,6 @@ async function submitForm(){
   align-items: center;
   background-color: $BgColor;
 
-  
   #login_container {
     background-color: $themeColor;
     width: 35%;
@@ -90,7 +107,7 @@ async function submitForm(){
       display: flex;
       flex-direction: column;
       align-items: stretch;
-      .elb{
+      .elb {
         margin: 10px 20px;
         font-weight: bold;
       }
@@ -101,7 +118,8 @@ async function submitForm(){
       align-items: center;
       justify-content: space-between;
       color: white;
-      .left,.right {
+      .left,
+      .right {
         height: 2px;
         width: 45%;
         background-color: $loginFsLightColor;
@@ -109,11 +127,11 @@ async function submitForm(){
     }
     #login_form {
       margin: 10px 20px;
-      :deep(.el-input__wrapper){
+      :deep(.el-input__wrapper) {
         margin: 25px 0px;
       }
     }
-    #login_submit{
+    #login_submit {
       margin: 50px 20px;
       #submit {
         width: 100%;
@@ -128,12 +146,12 @@ async function submitForm(){
   }
 
   @media (width<=768px) {
-    #login_container{
+    #login_container {
       width: 80%;
     }
   }
   @media (width>=1920px) {
-    #login_container{
+    #login_container {
       width: 20%;
     }
   }

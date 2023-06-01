@@ -3,12 +3,12 @@ import vue from '@vitejs/plugin-vue'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { viteMockServe } from 'vite-plugin-mock'
 import path from 'path'
-import PROXY_CONFIG from "./proxy.conf"
+import PROXY_CONFIG from './proxy.conf'
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
     hmr: true,
-    proxy: PROXY_CONFIG
+    proxy: PROXY_CONFIG,
   },
   plugins: [
     vue(),
