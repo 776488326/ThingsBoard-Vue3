@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
 let http = axios.create({
-  baseURL: import.meta.env.BASE_API_PREFIX,
+  baseURL: import.meta.env.VITE_BASE_API_PREFIX,
   timeout: 5000,
 })
 

@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const forwardUrl = 'http://localhost:9090'
-const wsForwardUrl = 'ws://localhost:9090'
+const forwardUrl = 'http://172.17.0.2:9090'
+const wsForwardUrl = 'ws://172.17.0.2:9090'
 const ruleNodeUiforwardUrl = forwardUrl
 
 const PROXY_CONFIG = {
@@ -45,4 +45,4 @@ const PROXY_CONFIG = {
   },
 }
 
-module.exports = PROXY_CONFIG
+export default PROXY_CONFIG
