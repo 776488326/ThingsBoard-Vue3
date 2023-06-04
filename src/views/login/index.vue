@@ -1,59 +1,59 @@
 <script setup lang="ts">
 import { Message, Lock } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
-import FadeTransition from "@/components/fade_transition/index.vue"
-import { ElMessage } from 'element-plus';
-import { userMessageStore } from "@/stores/user.ts";
-import router from '@/router/index.ts';
-const store = userMessageStore();
+import FadeTransition from '@/components/fade_transition/index.vue'
+import { ElMessage } from 'element-plus'
+import { userMessageStore } from '@/stores/user.ts'
+import router from '@/router/index.ts'
+const store = userMessageStore()
 const loginForm = reactive({
   userName: '',
   password: '',
 })
-let isRemeber = ref(false);
+let isRemeber = ref(false)
 // 处理记住密码
-let tempStatus = localStorage.getItem("isRemeber");
-if(tempStatus){
-  isRemeber.value = JSON.parse(tempStatus);
-  if(isRemeber.value){
-    const userInfo = localStorage.getItem("userInfo");
-    if(!userInfo){
-      isRemeber.value = false;
-    }else{
-      const { userName, password } = JSON.parse(userInfo);
-      loginForm.password = password;
-      loginForm.userName = userName;
+let tempStatus = localStorage.getItem('isRemeber')
+if (tempStatus) {
+  isRemeber.value = JSON.parse(tempStatus)
+  if (isRemeber.value) {
+    const userInfo = localStorage.getItem('userInfo')
+    if (!userInfo) {
+      isRemeber.value = false
+    } else {
+      const { userName, password } = JSON.parse(userInfo)
+      loginForm.password = password
+      loginForm.userName = userName
     }
   }
 }
 
 let signUp = reactive({
-  firstName: "",
-  lastName: "",
-  password: "",
-  email: "",
+  firstName: '',
+  lastName: '',
+  password: '',
+  email: '',
 })
-let loading = ref(false);
-let isRegistrySuccess = ref(false);
-let isSignUp = ref(false); 
+let loading = ref(false)
+let isRegistrySuccess = ref(false)
+let isSignUp = ref(false)
 async function submitForm() {
-  let res = await store.userLogin(loginForm);
-  if(res){
-    ElMessage.success(res.message);
-    localStorage.setItem("userInfo", JSON.stringify(loginForm));
-    localStorage.setItem("isAuthenticated",JSON.stringify(true));
-    localStorage.setItem("isRemeber", JSON.stringify(isRemeber.value));
-    router.push({name: "Home"})
+  let res = await store.userLogin(loginForm)
+  if (res) {
+    ElMessage.success(res.message)
+    localStorage.setItem('userInfo', JSON.stringify(loginForm))
+    localStorage.setItem('isAuthenticated', JSON.stringify(true))
+    localStorage.setItem('isRemeber', JSON.stringify(isRemeber.value))
+    router.push({ name: 'Home' })
   }
 }
 
 async function registryUser() {
-  loading.value = true;
-  let res = await store.userRegistry(signUp);
-  isRegistrySuccess.value = !!res;
-  loginForm.password = store.user_message.password as string;
-  loginForm.userName = store.user_message.userName as string;
-  loading.value = false;
+  loading.value = true
+  let res = await store.userRegistry(signUp)
+  isRegistrySuccess.value = !!res
+  loginForm.password = store.user_message.password as string
+  loginForm.userName = store.user_message.userName as string
+  loading.value = false
 }
 </script>
 
@@ -71,12 +71,18 @@ async function registryUser() {
         </header>
         <label id="label">Log in to see ThingsBoard in action</label>
         <fieldset id="login_btn">
-          <el-button disabled class="elb" size="default" @click="">Google登录</el-button>
+          <el-button disabled class="elb" size="default" @click="">
+            Google登录
+          </el-button>
           <el-button disabled class="elb" size="default" @click="">
             Facebook登录
           </el-button>
-          <el-button disabled class="elb" size="default" @click="">Github登录</el-button>
-          <el-button disabled class="elb" size="default" @click="">Apple登录</el-button>
+          <el-button disabled class="elb" size="default" @click="">
+            Github登录
+          </el-button>
+          <el-button disabled class="elb" size="default" @click="">
+            Apple登录
+          </el-button>
         </fieldset>
         <fieldset id="login_divider">
           <section class="left"></section>
@@ -85,50 +91,68 @@ async function registryUser() {
         </fieldset>
         <FadeTransition name="bounce">
           <fieldset id="sign_up" v-if="isSignUp">
-          <section id="registry_operate">
-          <legend id="sign_up_title">注册账号</legend>
-          <el-button type="text" size="default" @click="isSignUp=false">返回登录</el-button>
-          </section>
-          <section id="fullname">
-            <el-input v-model="signUp.firstName" placeholder="姓"></el-input>
-            <span id="place">&nbsp</span>
-            <el-input v-model="signUp.lastName" placeholder="名"></el-input>
-          </section>
-          <el-input :prefix-icon="Message" v-model="signUp.email" type="email" placeholder="用户名（电子邮件）*"></el-input>
-          <el-input :prefix-icon="Lock" show-password v-model="signUp.password" type="password" placeholder="密码" ></el-input>
-          
-          <el-button id="registry" type="primary" @click="registryUser" :loading="loading">
-            {{isRegistrySuccess?"注册成功":"注册"}}
-          </el-button>
-        </fieldset>
-        <fieldset v-else>
-          <fieldset id="login_form">
-          <el-input
-            v-model="loginForm.userName"
-            placeholder="用户名（电子邮件）*"
-            type="email"
-            :prefix-icon="Message"
-          ></el-input>
-          <el-input
-            v-model="loginForm.password"
-            placeholder="密码"
-            type="password"
-            show-password
-            :prefix-icon="Lock"
-          ></el-input>
-        </fieldset>
-        <fieldset id="login_operate">
-          <el-checkbox v-model="isRemeber" label="记住密码" />
-          <el-button type="text" size="default" @click="isSignUp=true">注册账号</el-button>
-        </fieldset>
-        <fieldset id="login_submit">
-          <el-button id="submit" type="primary" @click="submitForm">
-            登录
-          </el-button>
-          
-        </fieldset>
-        </fieldset>
-        
+            <section id="registry_operate">
+              <legend id="sign_up_title">注册账号</legend>
+              <el-button type="text" size="default" @click="isSignUp = false">
+                返回登录
+              </el-button>
+            </section>
+            <section id="fullname">
+              <el-input v-model="signUp.firstName" placeholder="姓"></el-input>
+              <span id="place">&nbsp</span>
+              <el-input v-model="signUp.lastName" placeholder="名"></el-input>
+            </section>
+            <el-input
+              :prefix-icon="Message"
+              v-model="signUp.email"
+              type="email"
+              placeholder="用户名（电子邮件）*"
+            ></el-input>
+            <el-input
+              :prefix-icon="Lock"
+              show-password
+              v-model="signUp.password"
+              type="password"
+              placeholder="密码"
+            ></el-input>
+
+            <el-button
+              id="registry"
+              type="primary"
+              @click="registryUser"
+              :loading="loading"
+            >
+              {{ isRegistrySuccess ? '注册成功' : '注册' }}
+            </el-button>
+          </fieldset>
+          <fieldset v-else>
+            <fieldset id="login_form">
+              <el-input
+                v-model="loginForm.userName"
+                placeholder="用户名（电子邮件）*"
+                type="email"
+                :prefix-icon="Message"
+              ></el-input>
+              <el-input
+                v-model="loginForm.password"
+                placeholder="密码"
+                type="password"
+                show-password
+                :prefix-icon="Lock"
+              ></el-input>
+            </fieldset>
+            <fieldset id="login_operate">
+              <el-checkbox v-model="isRemeber" label="记住密码" />
+              <el-button type="text" size="default" @click="isSignUp = true">
+                注册账号
+              </el-button>
+            </fieldset>
+            <fieldset id="login_submit">
+              <el-button id="submit" type="primary" @click="submitForm">
+                登录
+              </el-button>
+            </fieldset>
+          </fieldset>
         </FadeTransition>
       </form>
     </el-scrollbar>
@@ -207,18 +231,18 @@ async function registryUser() {
     }
     #sign_up {
       margin: 50px 20px;
-      #registry_operate{
+      #registry_operate {
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
-      #sign_up_title{
+      #sign_up_title {
         color: $loginBtnColor;
         font-weight: bold;
         font-size: 24px;
-        margin: 20px ;
+        margin: 20px;
       }
-      #fullname{
+      #fullname {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -231,15 +255,16 @@ async function registryUser() {
     #login_submit {
       margin: 40px 20px 10px;
     }
-    #submit,#registry {
-        margin: 10px 0px;
-        width: 100%;
-        background-color: $loginBtnColor;
-        border: none;
-        padding: 20px;
-        border-radius: 5px;
-        color: $loginFsColor;
-        cursor: pointer;
+    #submit,
+    #registry {
+      margin: 10px 0px;
+      width: 100%;
+      background-color: $loginBtnColor;
+      border: none;
+      padding: 20px;
+      border-radius: 5px;
+      color: $loginFsColor;
+      cursor: pointer;
     }
   }
 

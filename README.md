@@ -21,3 +21,9 @@
 ### 原项目地址
 
 - [thingsboard](https://github.com/thingsboard/thingsboard)
+
+
+### 项目启动
+
+1. yarn
+2. yarn start

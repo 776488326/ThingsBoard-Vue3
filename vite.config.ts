@@ -5,17 +5,16 @@ import { viteMockServe } from 'vite-plugin-mock'
 import path from 'path'
 import PROXY_CONFIG from './proxy.conf'
 // https://vitejs.dev/config/
-export default ({command}: ConfigEnv): UserConfigExport=>{
+export default ({ command }: ConfigEnv): UserConfigExport => {
   return {
     build: {
       sourcemap: true,
     },
     server: {
       hmr: {
-        overlay: false
+        overlay: false,
       },
       proxy: PROXY_CONFIG,
-      
     },
     plugins: [
       vue(),
@@ -42,7 +41,16 @@ export default ({command}: ConfigEnv): UserConfigExport=>{
       alias: {
         '@': 'src',
       },
-      extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', ".vue"]
+      extensions: [
+        '.mjs',
+        '.js',
+        '.mts',
+        '.ts',
+        '.jsx',
+        '.tsx',
+        '.json',
+        '.vue',
+      ],
     },
   }
-} 
+}
