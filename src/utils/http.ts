@@ -5,23 +5,18 @@ let http = axios.create({
   timeout: 5000,
 })
 
-http.interceptors.request.use((config) => {
-  return config
-})
-
-http.interceptors.response.use(
-  (resp) => {
-    return resp.data
-  },
-  (err) => {
-    let message = ''
-    let status = err.response.status
+function handleError(err: any, status: Number){
+  let message = ''
+    
     switch (status) {
+      case 400:
+        message = "请求参数不正确"
+        break
       case 401:
-        message = 'TOKEN过期，请重新登录获取'
+        message = 'TOKEN过期，或账号密码错误，请重新登录获取'
         break
       case 403:
-        message = '权限不足，请联系管理员'
+        message = '账号密码权限不足，请联系管理员'
         break
       case 404:
         message = '请求地址不存在，请确认后重试'
@@ -34,10 +29,27 @@ http.interceptors.response.use(
         break
     }
     ElMessage({
-      message,
+      message: err||message,
       type: 'error',
     })
-    return Promise.reject(err)
+    return false
+}
+
+http.interceptors.request.use((config) => {
+  return config
+})
+
+
+
+http.interceptors.response.use(
+  (resp) => {
+    if(resp.data.code!==200){
+      return handleError(resp.data.message, resp.data.code);
+    }
+    return resp.data
+  },
+  (err) => {
+    return handleError(err, err.response.status);
   },
 )
 

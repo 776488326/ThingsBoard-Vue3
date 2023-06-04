@@ -13,8 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const forwardUrl = 'http://172.17.0.2:9090'
-const wsForwardUrl = 'ws://172.17.0.2:9090'
+const forwardUrl = 'http://127.0.0.1:4523/m1/2826700-0-default'
+// const forwardUrl = 'http://172.26.240.1:9090'
+const wsForwardUrl = 'ws://127.0.0.1:4523/m1/2826700-0-default'
+// const wsForwardUrl = 'ws://172.26.240.1:9090'
 const ruleNodeUiforwardUrl = forwardUrl
 
 const PROXY_CONFIG = {

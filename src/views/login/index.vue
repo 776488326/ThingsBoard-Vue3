@@ -1,24 +1,65 @@
 <script setup lang="ts">
-import { requestLogin } from '@/api/index.ts'
 import { Message, Lock } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
+import FadeTransition from "@/components/fade_transition/index.vue"
+import { ElMessage } from 'element-plus';
+import { userMessageStore } from "@/stores/user.ts";
+import router from '@/router/index.ts';
+const store = userMessageStore();
 const loginForm = reactive({
-  username: '',
+  userName: '',
   password: '',
 })
-let ischecked = ref(false)
-
-async function submitForm() {
-  const res = await requestLogin(loginForm)
-  if (ischecked.value) {
+let isRemeber = ref(false);
+// 处理记住密码
+let tempStatus = localStorage.getItem("isRemeber");
+if(tempStatus){
+  isRemeber.value = JSON.parse(tempStatus);
+  if(isRemeber.value){
+    const userInfo = localStorage.getItem("userInfo");
+    if(!userInfo){
+      isRemeber.value = false;
+    }else{
+      const { userName, password } = JSON.parse(userInfo);
+      loginForm.password = password;
+      loginForm.userName = userName;
+    }
   }
-  console.log(res)
+}
+
+let signUp = reactive({
+  firstName: "",
+  lastName: "",
+  password: "",
+  email: "",
+})
+let loading = ref(false);
+let isRegistrySuccess = ref(false);
+let isSignUp = ref(false); 
+async function submitForm() {
+  let res = await store.userLogin(loginForm);
+  if(res){
+    ElMessage.success(res.message);
+    localStorage.setItem("userInfo", JSON.stringify(loginForm));
+    localStorage.setItem("isAuthenticated",JSON.stringify(true));
+    localStorage.setItem("isRemeber", JSON.stringify(isRemeber.value));
+    router.push({name: "Home"})
+  }
+}
+
+async function registryUser() {
+  loading.value = true;
+  let res = await store.userRegistry(signUp);
+  isRegistrySuccess.value = !!res;
+  loginForm.password = store.user_message.password as string;
+  loginForm.userName = store.user_message.userName as string;
+  loading.value = false;
 }
 </script>
 
 <template>
   <div class="container">
-    <el-scrollbar height="700px" id="login_container">
+    <el-scrollbar height="800px" id="login_container">
       <form>
         <header id="login_logo">
           <img
@@ -30,21 +71,40 @@ async function submitForm() {
         </header>
         <label id="label">Log in to see ThingsBoard in action</label>
         <fieldset id="login_btn">
-          <el-button class="elb" size="default" @click="">Google登录</el-button>
-          <el-button class="elb" size="default" @click="">
+          <el-button disabled class="elb" size="default" @click="">Google登录</el-button>
+          <el-button disabled class="elb" size="default" @click="">
             Facebook登录
           </el-button>
-          <el-button class="elb" size="default" @click="">Github登录</el-button>
-          <el-button class="elb" size="default" @click="">Apple登录</el-button>
+          <el-button disabled class="elb" size="default" @click="">Github登录</el-button>
+          <el-button disabled class="elb" size="default" @click="">Apple登录</el-button>
         </fieldset>
         <fieldset id="login_divider">
           <section class="left"></section>
           <section class="center">或</section>
           <section class="right"></section>
         </fieldset>
-        <fieldset id="login_form">
+        <FadeTransition name="bounce">
+          <fieldset id="sign_up" v-if="isSignUp">
+          <section id="registry_operate">
+          <legend id="sign_up_title">注册账号</legend>
+          <el-button type="text" size="default" @click="isSignUp=false">返回登录</el-button>
+          </section>
+          <section id="fullname">
+            <el-input v-model="signUp.firstName" placeholder="姓"></el-input>
+            <span id="place">&nbsp</span>
+            <el-input v-model="signUp.lastName" placeholder="名"></el-input>
+          </section>
+          <el-input :prefix-icon="Message" v-model="signUp.email" type="email" placeholder="用户名（电子邮件）*"></el-input>
+          <el-input :prefix-icon="Lock" show-password v-model="signUp.password" type="password" placeholder="密码" ></el-input>
+          
+          <el-button id="registry" type="primary" @click="registryUser" :loading="loading">
+            {{isRegistrySuccess?"注册成功":"注册"}}
+          </el-button>
+        </fieldset>
+        <fieldset v-else>
+          <fieldset id="login_form">
           <el-input
-            v-model="loginForm.username"
+            v-model="loginForm.userName"
             placeholder="用户名（电子邮件）*"
             type="email"
             :prefix-icon="Message"
@@ -56,13 +116,20 @@ async function submitForm() {
             show-password
             :prefix-icon="Lock"
           ></el-input>
-          <el-checkbox v-model="ischecked" label="记住密码" />
+        </fieldset>
+        <fieldset id="login_operate">
+          <el-checkbox v-model="isRemeber" label="记住密码" />
+          <el-button type="text" size="default" @click="isSignUp=true">注册账号</el-button>
         </fieldset>
         <fieldset id="login_submit">
           <el-button id="submit" type="primary" @click="submitForm">
             登录
           </el-button>
+          
         </fieldset>
+        </fieldset>
+        
+        </FadeTransition>
       </form>
     </el-scrollbar>
   </div>
@@ -82,11 +149,12 @@ async function submitForm() {
   #login_container {
     background-color: $themeColor;
     width: 35%;
-    height: 700px;
-    overflow-y: auto;
+    height: 800px;
+    overflow-y: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 
     #login_logo {
       width: 50%;
@@ -131,9 +199,40 @@ async function submitForm() {
         margin: 25px 0px;
       }
     }
-    #login_submit {
+    #login_operate {
+      margin: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #sign_up {
       margin: 50px 20px;
-      #submit {
+      #registry_operate{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #sign_up_title{
+        color: $loginBtnColor;
+        font-weight: bold;
+        font-size: 24px;
+        margin: 20px ;
+      }
+      #fullname{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 10px 0px;
+      }
+      :deep(.el-input__wrapper) {
+        margin: 10px 0px;
+      }
+    }
+    #login_submit {
+      margin: 40px 20px 10px;
+    }
+    #submit,#registry {
+        margin: 10px 0px;
         width: 100%;
         background-color: $loginBtnColor;
         border: none;
@@ -141,7 +240,6 @@ async function submitForm() {
         border-radius: 5px;
         color: $loginFsColor;
         cursor: pointer;
-      }
     }
   }
 
@@ -155,5 +253,15 @@ async function submitForm() {
       width: 20%;
     }
   }
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
