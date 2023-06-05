@@ -4701,9 +4701,9 @@ vary@^1:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
-vite-plugin-mock@^3.0.0:
+vite-plugin-mock@3.0.0:
   version "3.0.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-mock/-/vite-plugin-mock-3.0.0.tgz#aabcf57a2e877062acdc87dd9d6131ddac40beb4"
+  resolved "https://registry.npmmirror.com/vite-plugin-mock/-/vite-plugin-mock-3.0.0.tgz#aabcf57a2e877062acdc87dd9d6131ddac40beb4"
   integrity sha512-Ibwlga2CSgkoFHFtPW3T/l0fwsGVz9Ss5i7HauBQDyDFfMKgbQXh9wKDLksLZHyai9rkDanxJtIcxbD0bUHCfw==
   dependencies:
     "@types/mockjs" "^1.0.7"

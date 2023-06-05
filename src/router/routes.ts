@@ -20,4 +20,8 @@ export const constantRoutes = [
     component: () => import('@/views/login/index.vue'),
     name: 'Login',
   },
+  {
+    path: "/:notFound(.*)",
+    redirect: "/404"
+  }
 ]
