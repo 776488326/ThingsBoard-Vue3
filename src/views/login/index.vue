@@ -43,7 +43,7 @@ async function submitForm() {
     localStorage.setItem('userInfo', JSON.stringify(loginForm))
     localStorage.setItem('isAuthenticated', JSON.stringify(true))
     localStorage.setItem('isRemeber', JSON.stringify(isRemeber.value))
-    router.push({ name: 'Home' })
+    router.push({ name: 'Layout' })
   }
 }
 

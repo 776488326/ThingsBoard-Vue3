@@ -6,9 +6,16 @@ export const constantRoutes = [
     },
   },
   {
-    path: '/home',
-    component: () => import('@/views/home/index.vue'),
-    name: 'Home',
+    path: '/layout',
+    component: () => import('@/layouts/index.vue'),
+    name: 'Layout',
+    children: [
+      {
+        path: "/home",
+        component: ()=>import("@/views/home/index.vue"),
+        name: "Home"
+      }
+    ]
   },
   {
     path: '/404',
