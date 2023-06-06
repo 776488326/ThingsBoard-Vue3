@@ -1,12 +1,6 @@
 export const constantRoutes = [
   {
     path: '/',
-    redirect: {
-      name: 'Home',
-    },
-  },
-  {
-    path: '/layout',
     component: () => import('@/layouts/index.vue'),
     name: 'Layout',
     children: [
