@@ -5,11 +5,11 @@ export const constantRoutes = [
     name: 'Layout',
     children: [
       {
-        path: "/home",
-        component: ()=>import("@/views/home/index.vue"),
-        name: "Home"
-      }
-    ]
+        path: '/home',
+        component: () => import('@/views/home/index.vue'),
+        name: 'Home',
+      },
+    ],
   },
   {
     path: '/404',
@@ -22,7 +22,7 @@ export const constantRoutes = [
     name: 'Login',
   },
   {
-    path: "/:notFound(.*)",
-    redirect: "/404"
-  }
+    path: '/:notFound(.*)',
+    redirect: '/404',
+  },
 ]

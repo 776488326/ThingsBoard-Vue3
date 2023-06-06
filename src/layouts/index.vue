@@ -1,9 +1,8 @@
 <script setup>
-import { ref, onMounted, nextTick } from "vue";
-import LayoutAside from "./LayoutAside";
-import LayoutMain from "./LayoutMain";
-import LayoutHeader from "./LayoutHeader";
-
+import { ref, onMounted, nextTick } from 'vue'
+import LayoutAside from './LayoutAside'
+import LayoutMain from './LayoutMain'
+import LayoutHeader from './LayoutHeader'
 </script>
 
 <template>
@@ -45,6 +44,6 @@ import LayoutHeader from "./LayoutHeader";
   .el-main {
     padding: 16px;
     background-color: #ddd;
-
   }
-}</style>
+}
+</style>
