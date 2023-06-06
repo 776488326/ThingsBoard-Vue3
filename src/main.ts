@@ -12,6 +12,7 @@ import '@/styles/index.scss'
 import store from '@/stores/index.ts'
 import router from '@/router/index.ts'
 
+
 const app = createApp(App)
 app.config.errorHandler = (err, instance, info) => {
   // 自定义全局未捕获错误处理

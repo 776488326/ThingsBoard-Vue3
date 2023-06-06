@@ -2,7 +2,6 @@
 import { Message, Lock } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
 import FadeTransition from '@/components/fade_transition/index.vue'
-import { ElMessage } from 'element-plus'
 import { userMessageStore } from '@/stores/user.ts'
 import router from '@/router/index.ts'
 const store = userMessageStore()
@@ -39,11 +38,10 @@ let isSignUp = ref(false)
 async function submitForm() {
   let res = await store.userLogin(loginForm)
   if (res) {
-    ElMessage.success(res.message)
     localStorage.setItem('userInfo', JSON.stringify(loginForm))
     localStorage.setItem('isAuthenticated', JSON.stringify(true))
     localStorage.setItem('isRemeber', JSON.stringify(isRemeber.value))
-    router.push({ name: 'Layout' })
+    router.push({ name: 'Home' })
   }
 }
 

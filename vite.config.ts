@@ -11,9 +11,7 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
       sourcemap: true,
     },
     server: {
-      hmr: {
-        overlay: false,
-      },
+      hmr: true,
       proxy: PROXY_CONFIG,
     },
     plugins: [
