@@ -12,11 +12,16 @@ export const userMessageStore = defineStore('userMessage', () => {
     password: String
     isAuthenticated: Boolean
   }
-
+  const { userName, password } = JSON.parse(
+    localStorage.getItem('userInfo') || '{}',
+  )
+  const isAuthenticated = JSON.parse(
+    localStorage.getItem('isAuthenticated') || '',
+  )
   const user_message: UserMessage = reactive({
-    userName: '',
-    password: '',
-    isAuthenticated: false,
+    userName,
+    password,
+    isAuthenticated,
   })
 
   async function userLogin(data: LoginForm) {
