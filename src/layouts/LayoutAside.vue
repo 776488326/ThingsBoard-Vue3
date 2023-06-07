@@ -3,7 +3,7 @@ import SideBarMenu from '@/components/side_bar_menu/index.vue'
 </script>
 
 <template>
-  <el-container :direction="vertical">
+  <el-container direction="vertical">
     <el-header>
       <img src="/logo_title_white.svg" alt="logo" />
     </el-header>

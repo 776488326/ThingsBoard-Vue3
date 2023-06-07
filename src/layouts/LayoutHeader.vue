@@ -7,6 +7,11 @@ import TopBreadCrumb from '@/components/top_breadcrumb/index.vue'
     <TopBreadCrumb></TopBreadCrumb>
     <section id="function">
       <el-container>
+        <SvgIcon name="fullscreen" width="16px" height="16px"></SvgIcon>
+        <section id="user">
+          <section id="avatar"></section>
+          <section id="info"></section>
+        </section>
         <SvgIcon name="FullScreen"></SvgIcon>
       </el-container>
     </section>
