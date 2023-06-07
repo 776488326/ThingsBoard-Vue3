@@ -11,9 +11,7 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
       sourcemap: true,
     },
     server: {
-      hmr: {
-        overlay: false,
-      },
+      hmr: true,
       proxy: PROXY_CONFIG,
     },
     plugins: [
@@ -22,7 +20,7 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
         // Specify the icon folder to be cached
         iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
         // Specify symbolId format
-        symbolId: 'icon-[dir]-[name]',
+        symbolId: '#icon-[dir]-[name]',
       }),
       viteMockServe({
         mockPath: 'mock',
@@ -33,7 +31,9 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
       preprocessorOptions: {
         scss: {
           javascriptEnabled: true,
-          additionalData: '@import "./src/styles/variable.scss";',
+          // @forward规则必须写在最前面，此处导入的路径会在所有的scss文件中被引入，因此必须保证@forward规则的文件在最前边
+          additionalData:
+            '@import "./src/styles/merge.scss";@import "./src/styles/variable.scss";',
         },
       },
     },
