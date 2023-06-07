@@ -2,7 +2,11 @@
   $text-color: (
     'primary': #fff,
     'regular': #def2fb,
+  ),
+  $bg-color: (
+    "overlay": #2e537b
+  ),
+  $border-color: (
+    "lighter": #ff6433
   )
 );
-
-@use 'element-plus/theme-chalk/src/index.scss' as *;

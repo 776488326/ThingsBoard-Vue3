@@ -16,7 +16,7 @@ export const userMessageStore = defineStore('userMessage', () => {
     localStorage.getItem('userInfo') || '{}',
   )
   const isAuthenticated = JSON.parse(
-    localStorage.getItem('isAuthenticated') || '',
+    localStorage.getItem('isAuthenticated') || 'false',
   )
   const user_message: UserMessage = reactive({
     userName,

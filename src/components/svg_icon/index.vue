@@ -3,10 +3,13 @@ import { computed } from 'vue'
 
 const props = defineProps({
   prefix: {
-    default: '#icon',
+    default: 'icon',
     type: String,
   },
-  name: String,
+  name: {
+    type: String,
+    required: true
+  },
   color: {
     default: '',
     type: String,
@@ -20,11 +23,11 @@ const props = defineProps({
     type: String,
   },
 })
-const symbolId = computed(() => `${props.prefix}-${props.name}`)
+const symbolId = computed(() => `#${props.prefix}-${props.name}`)
 </script>
 
 <template>
   <svg :style="{ width, height }">
-    <use :href="symbolId" :fill="color" />
+    <use :xlink:href="symbolId" :fill="color" />
   </svg>
 </template>

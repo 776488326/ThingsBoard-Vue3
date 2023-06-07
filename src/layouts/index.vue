@@ -33,7 +33,7 @@ import LayoutHeader from './LayoutHeader'
 
   .el-aside {
     @extend .common;
-    min-width: $sideBarWidth;
+    width: $sideBarWidth;
   }
 
   .el-header {
@@ -42,7 +42,6 @@ import LayoutHeader from './LayoutHeader'
   }
 
   .el-main {
-    padding: 16px;
     background-color: #ddd;
   }
 }
