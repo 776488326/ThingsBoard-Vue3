@@ -11,17 +11,7 @@ import { onMounted, ref, reactive } from 'vue'
 </template>
 
 <style lang="scss" scoped>
-.el-breadcrumb__item:last-child {
-  :deep(.el-breadcrumb__inner) {
-    color: $sideBarHoverFontColor;
-  }
-}
-
-:deep(.el-breadcrumb__inner) {
-  color: $sideBarFontColor;
-
-  .is-link {
-    color: $sideBarHoverFontColor;
-  }
+:deep(.el-breadcrumb__item:last-child .el-breadcrumb__inner) {
+  color: $loginBtnColor;
 }
 </style>
