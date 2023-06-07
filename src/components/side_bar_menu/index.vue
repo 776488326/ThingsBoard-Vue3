@@ -1,13 +1,7 @@
 <script setup></script>
 
 <template>
-  <el-menu
-    default-active="2"
-    background-color="rgba(0, 0, 0, 0)"
-    text-color="#fff"
-    @open="handleOpen"
-    @close="handleClose"
-  >
+  <el-menu default-active="2" background-color="rgba(0, 0, 0, 0)">
     <el-sub-menu index="1">
       <template #title>
         <el-icon>
@@ -76,9 +70,6 @@
       <span>Navigator Three</span>
     </el-menu-item>
     <el-menu-item index="4">
-      <el-icon>
-        <setting />
-      </el-icon>
       <span>Navigator Four</span>
     </el-menu-item>
   </el-menu>
@@ -87,6 +78,6 @@
 <style lang="scss" scoped>
 .el-menu {
   height: 100%;
-  border: none;
+  border: none !important;
 }
 </style>

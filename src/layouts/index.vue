@@ -6,11 +6,11 @@ import LayoutHeader from './LayoutHeader'
 </script>
 
 <template>
-  <el-container :direction="horizontal" class="layout">
+  <el-container direction="horizontal" class="layout">
     <el-aside>
       <LayoutAside></LayoutAside>
     </el-aside>
-    <el-container :direction="vertical">
+    <el-container direction="vertical">
       <el-header>
         <LayoutHeader></LayoutHeader>
       </el-header>
