@@ -1,5 +1,6 @@
 <script setup>
-
+import MiniCard from "./mini_card/index.vue"
+import MaxCard from "./max_card/index.vue"
 import { ElNotification } from 'element-plus';
 import { onMounted, ref } from "vue";
 import { userMessageStore } from "@/stores/user.ts";
@@ -22,23 +23,53 @@ onMounted(() => {
         type: "success",
     })
 })
+const cards = [
+    {
+        id: "total",
+        title: "Total devices",
+        iconName: "",
+        content: "19"
+    },
+    {
+        id: "active",
+        title: "active devices",
+        iconName: "",
+        content: "0 100%"
+    },
+    {
+        id: "inactive",
+        title: "inactive devices",
+        iconName: "",
+        content: "19"
+    },
+    {
+        id: "tempperature",
+        title: "tempperature sensors",
+        iconName: "",
+        content: "3"
+    },
+    {
+        id: "air",
+        title: "air sensors",
+        iconName: "",
+        content: "4"
+    },
+    {
+        id: "charging",
+        title: "charging ports",
+        iconName: "",
+        content: "4"
+    },
+];
 </script>
 
 <template>
     <main id="container">
-        <section id="use_case">
-    
-        </section>
+        <MiniCard v-for="( card, index ) in cards" v-bind="card" :key="index">
+        </MiniCard>
         <section id="start">
-            
+            <MaxCard></MaxCard>
         </section>
-        <section id="device"></section>
-        <section id="alarm"></section>
-        <section id="dashboard"></section>
-        <section id="activity"></section>
-        <section id="links"></section>
-        <section id="document"></section>
-        <section id="usage"></section>
     </main>
 </template>
 
@@ -47,47 +78,46 @@ onMounted(() => {
     display: grid;
     height: 100%;
     width: 100%;
-    grid-template-columns: repeat(11,1fr);
-    grid-template-rows: 1fr 1fr 2fr 1fr;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1fr 6fr;
     gap: 16px;
-    section{
-        background-color: #fff;
-    }
-    #use-case{
-        grid-column: 1/8;
+
+    #total {
+        grid-column: 1;
         grid-row: 1;
     }
-    #start{
-        grid-column: 9/11;
-        grid-row: 1 / 5;
+
+    #active {
+        grid-column: 2;
+        grid-row: 1;
     }
-    #device{
-        grid-column: 1/4;
+
+    #inactive {
+        grid-column: 3;
+        grid-row: 1;
+    }
+
+    #tempperature {
+        grid-column: 4;
+        grid-row: 1;
+    }
+
+    #air {
+        grid-column: 5;
+        grid-row: 1;
+    }
+
+    #charging {
+        grid-column: 6;
+        grid-row: 1;
+    }
+
+    #start {
+        grid-column: 1/7;
         grid-row: 2;
-    }
-    #alarm{
-        grid-column: 5/8;
-        grid-row: 2;
-    }
-    #dashboard{
-        grid-column: 1/4;
-        grid-row: 3/4;
-    }
-    #activity{
-        grid-column: 5/8;
-        grid-row: 3/4;
-    }
-    #links{
-        grid-column: 1/2;
-        grid-row: 5;
-    }
-    #document{
-        grid-column: 3/5;
-        grid-row: 5;
-    }
-    #links{
-        grid-column: 6/8;
-        grid-row: 5;
+        overflow: hidden;
+        border-radius: $borderRadius;
+        background-color: $BgColor;
     }
 }
 </style>
