@@ -8,7 +8,7 @@ const props = defineProps({
   },
   name: {
     type: String,
-    required: true
+    required: true,
   },
   color: {
     default: '',

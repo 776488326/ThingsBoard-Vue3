@@ -12,7 +12,7 @@ router.beforeEach((to) => {
   nprogress.start()
   const store = userMessageStore()
   if (!store.user_message.isAuthenticated && to.name !== 'Login') {
-    console.log("redirect")
+    console.log('redirect')
     return {
       name: 'Login',
     }

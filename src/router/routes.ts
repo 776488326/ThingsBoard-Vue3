@@ -20,19 +20,19 @@ export const constantRoutes = [
         name: 'Dashboard',
       },
       {
-        path: "/device",
-        component: ()=>import("@/views/entity/device/index.vue"),
-        name: "Device"
+        path: '/device',
+        component: () => import('@/views/entity/device/index.vue'),
+        name: 'Device',
       },
       {
-        path: "/asset",
-        component: ()=>import("@/views/entity/asset/index.vue"),
-        name: "Asset"
+        path: '/asset',
+        component: () => import('@/views/entity/asset/index.vue'),
+        name: 'Asset',
       },
       {
-        path: "/entityView",
-        component: ()=>import("@/views/entity/entity_view/index.vue"),
-        name: "EntityView"
+        path: '/entityView',
+        component: () => import('@/views/entity/entity_view/index.vue'),
+        name: 'EntityView',
       },
       {
         path: '/assetConfig',
@@ -56,33 +56,35 @@ export const constantRoutes = [
       },
       {
         path: '/instances',
-        component:()=>import("@/views/edge_manage/instances/index.vue"),
-        name: "Instance"
+        component: () => import('@/views/edge_manage/instances/index.vue'),
+        name: 'Instance',
       },
       {
         path: '/rulechainTemplate',
-        component:()=>import("@/views/edge_manage/rulechain_template/index.vue"),
-        name: "RulechainTemplate"
+        component: () =>
+          import('@/views/edge_manage/rulechain_template/index.vue'),
+        name: 'RulechainTemplate',
       },
       {
         path: '/ota',
-        component:()=>import("@/views/advanced_feature/ota/index.vue"),
-        name: "Ota"
+        component: () => import('@/views/advanced_feature/ota/index.vue'),
+        name: 'Ota',
       },
       {
         path: '/versionControl',
-        component:()=>import("@/views/advanced_feature/version_control/index.vue"),
-        name: "VersionControl"
+        component: () =>
+          import('@/views/advanced_feature/version_control/index.vue'),
+        name: 'VersionControl',
       },
       {
         path: '/widget',
-        component:()=>import("@/views/resources/widget/index.vue"),
-        name: "Widget"
+        component: () => import('@/views/resources/widget/index.vue'),
+        name: 'Widget',
       },
       {
         path: '/resource',
-        component:()=>import("@/views/resources/resource/index.vue"),
-        name: "Resource"
+        component: () => import('@/views/resources/resource/index.vue'),
+        name: 'Resource',
       },
       {
         path: '/notification',
@@ -101,8 +103,8 @@ export const constantRoutes = [
       },
       {
         path: '/auditLog',
-        component:()=>import("@/views/secure/audit_log/index.vue"),
-        name: "AuditLog"
+        component: () => import('@/views/secure/audit_log/index.vue'),
+        name: 'AuditLog',
       },
     ],
   },
