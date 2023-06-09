@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import { constantRoutes } from './routes'
+import routes from './routes'
 import { userMessageStore } from '@/stores/user.ts'
 import nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: [...constantRoutes],
+  routes: routes
 })
 
 router.beforeEach((to) => {
@@ -18,8 +18,9 @@ router.beforeEach((to) => {
     }
   }
 })
-router.afterEach(() => {
+router.afterEach((to) => {
   nprogress.done()
+  document.title = `ThingsBoard | ${to.meta.title}`
 })
 
 export default router

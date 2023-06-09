@@ -1,23 +1,21 @@
-<script setup></script>
+<script setup>
+import dynamicRoutes from "@/router/dynamicRoutes.ts";
+
+</script>
 
 <template>
-  <el-menu default-active="2" background-color="rgba(0, 0, 0, 0)">
-    <el-sub-menu index="1">
-      <template #title>
-        <span>Navigator One</span>
-      </template>
-      <el-menu-item-group>
-        <el-menu-item index="1-1">item one</el-menu-item>
-        <el-menu-item index="1-2">item two</el-menu-item>
-      </el-menu-item-group>
-      <el-menu-item-group title="Group Two">
-        <el-menu-item index="1-3">item three</el-menu-item>
-      </el-menu-item-group>
-      <el-sub-menu index="1-4">
-        <template #title>item four</template>
-        <el-menu-item index="1-4-1">item one</el-menu-item>
+  <el-menu default-active="/home" background-color="rgba(0, 0, 0, 0)" :router="true" :unique-opened="true">
+    <template v-for="( route, index ) in dynamicRoutes" :key="index">
+      <el-sub-menu v-if="route.children" :index="route.name">
+        <template #title>
+          <SvgIcon v-if="route.meta.icon" :name="route.meta.icon"></SvgIcon>
+          <span>{{ route.meta.title }}</span>
+        </template>
+        <el-menu-item v-for="( subroute, index ) in route.children" :index="subroute.path" :key="subroute.path">{{
+          subroute.name }}</el-menu-item>
       </el-sub-menu>
-    </el-sub-menu>
+      <el-menu-item v-else :index="route.path">{{ route.meta.title }}</el-menu-item>
+    </template>
   </el-menu>
 </template>
 
