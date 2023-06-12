@@ -18,9 +18,9 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
       vue(),
       createSvgIconsPlugin({
         // Specify the icon folder to be cached
-        iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
+        iconDirs: [path.resolve(process.cwd(), './src/assets/icons')],
         // Specify symbolId format
-        symbolId: 'icon-[dir]-[name]',
+        symbolId: 'icon-[name]',
       }),
       viteMockServe({
         mockPath: 'mock',

@@ -120,7 +120,8 @@ const cards = [
     grid-row: 2;
     overflow: hidden;
     border-radius: $borderRadius;
-    background-color: $BgColor;
+    background-color: $white;
+    border: 2px solid $themeLightColor;
   }
 }
 </style>

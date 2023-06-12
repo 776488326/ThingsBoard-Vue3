@@ -1,5 +1,15 @@
 <script setup>
 import TopBreadCrumb from '@/components/top_breadcrumb/index.vue'
+import { ref } from 'vue'
+const isfull = ref(false)
+function changeFull() {
+  if (!isfull.value) {
+    document.documentElement.requestFullscreen()
+  } else {
+    document.exitFullscreen()
+  }
+  isfull.value = !isfull.value
+}
 </script>
 
 <template>
@@ -7,12 +17,40 @@ import TopBreadCrumb from '@/components/top_breadcrumb/index.vue'
     <TopBreadCrumb></TopBreadCrumb>
     <section id="function">
       <el-container>
-        <SvgIcon name="fullscreen"></SvgIcon>
+        <SvgIcon
+          name="fullscreen"
+          width="18px"
+          height="18px"
+          color="red"
+          v-if="!isfull"
+          @click="changeFull"
+          style="cursor: pointer"
+        ></SvgIcon>
+        <SvgIcon
+          name="offscreen"
+          width="18px"
+          height="18px"
+          color="red"
+          v-else
+          @click="changeFull"
+          style="cursor: pointer"
+        ></SvgIcon>
+        <SvgIcon
+          name="bell"
+          width="18px"
+          height="18px"
+          style="cursor: pointer"
+        ></SvgIcon>
         <section id="user">
           <section id="avatar"></section>
           <section id="info"></section>
         </section>
-        <SvgIcon name="fullScreen"></SvgIcon>
+        <SvgIcon
+          name="more"
+          width="18px"
+          height="18px"
+          style="cursor: pointer"
+        ></SvgIcon>
       </el-container>
     </section>
   </div>

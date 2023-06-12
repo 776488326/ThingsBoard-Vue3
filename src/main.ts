@@ -9,11 +9,12 @@ import globalComponentsRegistry from '@/components/index.ts'
 import '@/styles/index.scss'
 import store from '@/stores/index.ts'
 import router from '@/router/index.ts'
+import 'virtual:svg-icons-register'
 
 const app = createApp(App)
 app.config.errorHandler = (err, instance, info) => {
   // 自定义全局未捕获错误处理
-  console.table([err, instance, info], ['err', 'component', 'info'])
+  console.log(err)
 }
 app.use(ElementPlus, {
   locale: zhCn,
@@ -25,5 +26,3 @@ app.use(store)
 app.use(globalComponentsRegistry)
 app.use(router)
 app.mount('#app')
-
-console.log('import.meta.env', import.meta.env)

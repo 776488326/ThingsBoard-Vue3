@@ -5,7 +5,7 @@ import nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: routes
+  routes: routes,
 })
 
 router.beforeEach((to) => {

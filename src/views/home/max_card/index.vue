@@ -5,7 +5,6 @@
       direction="vertical"
       :column="4"
       size="large"
-      border
     >
       <el-descriptions-item label="Username">kooriookami</el-descriptions-item>
       <el-descriptions-item label="Telephone">18100000000</el-descriptions-item>
@@ -117,7 +116,7 @@
   </el-scrollbar>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .el-descriptions {
   margin-top: 20px;
 }

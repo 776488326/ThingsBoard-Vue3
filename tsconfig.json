@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["vite-plugin-svg-icons/client"],
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*", "proxy.conf.ts"]
