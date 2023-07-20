@@ -15,8 +15,14 @@ export default [
     redirect: '/home',
     meta: {
       authorization: ['Admin', 'User', 'Tenant'],
+      isShow: false
     },
     children,
+    beforeEnter: (to, from) => {
+      if(from.name==="Login"){
+        to.meta.isShow = true;
+      }
+    },
   },
   {
     path: '/404',

@@ -5,7 +5,7 @@ export interface Counter {
   password: String
 }
 
-export interface LoginForm {
+export interface UserInfo {
   userName: String
   password: String
 }

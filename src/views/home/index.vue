@@ -4,24 +4,29 @@ import MaxCard from './max_card/index.vue'
 import { ElNotification } from 'element-plus'
 import { onMounted, ref } from 'vue'
 import { userMessageStore } from '@/stores/user.ts'
+import { useRoute , } from 'vue-router'
 const useStore = userMessageStore()
 const message = ref('上午好')
-
+const route = useRoute()
 onMounted(() => {
-  const time = new Date()
-  let hour = time.getHours()
-  if (hour < 12 && hour >= 6) {
-    message.value = '早上好'
-  } else if (hour >= 12 && hour < 19) {
-    message.value = '下午好'
-  } else {
-    message.value = '晚上好'
+  // console.log('route',route)
+  if(route.meta.isShow){
+    const time = new Date()
+    let hour = time.getHours()
+    if (hour < 12 && hour >= 6) {
+      message.value = '早上好'
+    } else if (hour >= 12 && hour < 19) {
+      message.value = '下午好'
+    } else {
+      message.value = '晚上好'
+    }
+  
+    ElNotification({
+      title: `hi, ${useStore.user_message.userName}`,
+      message: message.value,
+      type: 'success',
+    })
   }
-  ElNotification({
-    title: `hi, ${useStore.user_message.userName}`,
-    message: message.value,
-    type: 'success',
-  })
 })
 const cards = [
   {

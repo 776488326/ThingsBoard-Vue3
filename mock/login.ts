@@ -1,4 +1,4 @@
-import { login_url, sign_up_url } from '../src/api/api_url'
+import { login_url, sign_up_url, logout_url } from '../src/api/api_url'
 import { MockMethod } from 'vite-plugin-mock'
 import type { Counter } from '../src/api/user/type'
 import type { Success, Fail } from '../src/api/common_type'
@@ -71,6 +71,13 @@ export default [
         fs.writeFileSync('./user_data.json', JSON.stringify(counter))
         return successTemplate({ userName: email, password })
       }
+    },
+  },
+  {
+    url: '/api' + logout_url,
+    method: 'get',
+    response({ body }) {
+      return successTemplate(null,{code: 200, message: "注销成功！"})
     },
   },
 ] as MockMethod[]
