@@ -1,8 +1,7 @@
-<script setup>
-import { ref, onMounted, nextTick } from 'vue'
-import LayoutAside from './LayoutAside'
-import LayoutMain from './LayoutMain'
-import LayoutHeader from './LayoutHeader'
+<script setup lang="ts">
+import LayoutAside from './LayoutAside.vue'
+import LayoutMain from './LayoutMain.vue'
+import LayoutHeader from './LayoutHeader.vue'
 </script>
 
 <template>

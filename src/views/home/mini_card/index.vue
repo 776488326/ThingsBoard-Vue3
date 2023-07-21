@@ -1,6 +1,5 @@
-<script setup>
-import { onMounted, ref, reactive } from 'vue'
-const props = defineProps({
+<script setup lang="ts">
+defineProps({
   title: {
     type: String,
     default: 'title',

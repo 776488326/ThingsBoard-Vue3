@@ -1,16 +1,16 @@
-<script setup>
+<script setup lang="ts">
 import MiniCard from './mini_card/index.vue'
 import MaxCard from './max_card/index.vue'
 import { ElNotification } from 'element-plus'
 import { onMounted, ref } from 'vue'
 import { userMessageStore } from '@/stores/user.ts'
-import { useRoute , } from 'vue-router'
+import { useRoute } from 'vue-router'
 const useStore = userMessageStore()
 const message = ref('上午好')
 const route = useRoute()
 onMounted(() => {
   // console.log('route',route)
-  if(route.meta.isShow){
+  if (route.meta.isShow) {
     const time = new Date()
     let hour = time.getHours()
     if (hour < 12 && hour >= 6) {
@@ -20,7 +20,7 @@ onMounted(() => {
     } else {
       message.value = '晚上好'
     }
-  
+
     ElNotification({
       title: `hi, ${useStore.user_message.userName}`,
       message: message.value,

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import dynamicRoutes from '@/router/dynamicRoutes.ts'
 </script>
 
@@ -9,7 +9,7 @@ import dynamicRoutes from '@/router/dynamicRoutes.ts'
     :router="true"
     :unique-opened="true"
   >
-    <template v-for="(route, index) in dynamicRoutes" :key="index">
+    <template v-for="(route) in dynamicRoutes" :key="route.name">
       <el-sub-menu v-if="route.children" :index="route.name">
         <template #title>
           <SvgIcon v-if="route.meta.icon" :name="route.meta.icon"></SvgIcon>
@@ -17,7 +17,7 @@ import dynamicRoutes from '@/router/dynamicRoutes.ts'
           <span>{{ route.meta.title }}</span>
         </template>
         <el-menu-item
-          v-for="(subroute, index) in route.children"
+          v-for="(subroute) in route.children"
           :index="subroute.path"
           :key="subroute.path"
         >

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import SideBarMenu from '@/components/side_bar_menu/index.vue'
 </script>
 
