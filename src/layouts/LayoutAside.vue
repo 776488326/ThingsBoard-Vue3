@@ -25,8 +25,8 @@ import SideBarMenu from '@/components/side_bar_menu/index.vue'
   }
 
   .el-header {
-    height: $headerHeight;
-    box-shadow: 5px 5px 10px $themeLightColor;
+    height: $header-height;
+    box-shadow: 5px 5px 10px $theme-light-color;
     display: flex;
     align-items: center;
     justify-content: center;

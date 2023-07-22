@@ -91,7 +91,7 @@ async function registryUser() {
           <fieldset id="sign_up" v-if="isSignUp">
             <section id="registry_operate">
               <legend id="sign_up_title">注册账号</legend>
-              <el-button type="text" size="default" @click="isSignUp = false">
+              <el-button size="default" @click="isSignUp = false" text>
                 返回登录
               </el-button>
             </section>
@@ -141,7 +141,7 @@ async function registryUser() {
             </fieldset>
             <fieldset id="login_operate">
               <el-checkbox v-model="isRemeber" label="记住密码" />
-              <el-button type="text" size="default" @click="isSignUp = true">
+              <el-button text size="default" @click="isSignUp = true">
                 注册账号
               </el-button>
             </fieldset>
@@ -158,18 +158,16 @@ async function registryUser() {
 </template>
 
 <style scoped lang="scss">
-@import '../../styles/variable.scss';
-
 .container {
   display: flex;
   width: 100%;
   height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: $BgColor;
+  background-color: $bg-color;
 
   #login_container {
-    background-color: $themeColor;
+    background-color: $theme-color;
     width: 35%;
     height: 800px;
     overflow-y: hidden;
@@ -189,7 +187,7 @@ async function registryUser() {
     #label {
       display: block;
       width: 100%;
-      color: $loginFsLightColor;
+      color: $font-color;
       text-align: center;
     }
     #login_btn {
@@ -212,7 +210,7 @@ async function registryUser() {
       .right {
         height: 2px;
         width: 45%;
-        background-color: $loginFsLightColor;
+        // background-color: $loginFsLightColor;
       }
     }
     #login_form {
@@ -235,7 +233,7 @@ async function registryUser() {
         align-items: center;
       }
       #sign_up_title {
-        color: $loginBtnColor;
+        color: $font-color;
         font-weight: bold;
         font-size: 24px;
         margin: 20px;
@@ -257,11 +255,10 @@ async function registryUser() {
     #registry {
       margin: 10px 0px;
       width: 100%;
-      background-color: $loginBtnColor;
+      background-color: $second-light-color;
       border: none;
       padding: 20px;
       border-radius: 5px;
-      color: $loginFsColor;
       cursor: pointer;
     }
   }

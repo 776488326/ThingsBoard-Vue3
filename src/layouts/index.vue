@@ -26,22 +26,22 @@ import LayoutHeader from './LayoutHeader.vue'
   height: 100vh;
 
   .common {
-    background-color: $themeColor;
-    color: $sideBarFontColor;
+    background-color: $theme-color;
+    color: $font-color;
   }
 
   .el-aside {
     @extend .common;
-    width: $sideBarWidth;
+    width: $sideBar-width;
   }
 
   .el-header {
     @extend .common;
-    height: $headerHeight;
+    height: $header-height;
   }
 
   .el-main {
-    background-color: #ddd;
+    background-color: $bg-color;
   }
 }
 </style>

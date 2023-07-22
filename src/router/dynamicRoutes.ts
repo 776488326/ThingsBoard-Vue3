@@ -147,7 +147,7 @@ export default [
         path: '/rulechainTemplate',
         component: () =>
           import('@/views/edge_manage/rulechain_template/index.vue'),
-        name: 'RulechainTemplate',
+        name: 'Rulechain',
         meta: {
           title: '规则链模板',
           authorization: ['Admin', 'User', 'Tenant'],
@@ -160,7 +160,8 @@ export default [
     path: '/advanced',
     name: 'Advanced',
     meta: {
-      title: 'Advanced features',
+      title: 'Advanced',
+      authorization: ['Admin', 'User', 'Tenant'],
       icon: 'advanced',
     },
     redirect: '/ota',

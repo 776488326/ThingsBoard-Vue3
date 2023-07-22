@@ -6,8 +6,8 @@
         "transform": "vue-tsc"
       }
     ],
-    "types": ["vite-plugin-svg-icons/client"],
-    "baseUrl": ".",
+    "types": ["@digitalacorn/vite-plugin-svg-icons/client"],
+    "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"]
     },

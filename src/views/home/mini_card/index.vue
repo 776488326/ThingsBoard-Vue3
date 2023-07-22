@@ -20,7 +20,6 @@ defineProps({
   <div class="container">
     <header id="title">{{ title }}</header>
     <section>
-      <SvgIcon :name="iconName"></SvgIcon>
       <span id="content">{{ content }}</span>
     </section>
   </div>
@@ -34,31 +33,24 @@ defineProps({
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  background-color: #eee;
   height: 100%;
-  border: 2px solid $themeLightColor;
-  border-radius: $borderRadius;
+  border: 2px solid $theme-light-color;
+  border-radius: $border-radius;
   padding: 16px 0;
-
+  z-index: 3;
+  text-align: center;
+  color: $theme-light-color;
   &:hover {
-    background-color: $themeColor;
-    border-color: $borderLineColor;
-
-    #title {
-      color: $loginFsLightColor;
-    }
+    border-color: $second-light-color;
   }
 
   #title {
     font-size: 16px;
     font-weight: 400;
-    color: $themeLightColor;
-    text-align: center;
   }
 
   #content {
     font-size: 24px;
-    color: $loginFsLightColor;
   }
 }
 
@@ -66,10 +58,11 @@ defineProps({
   display: flex;
   position: absolute;
   content: url(/thingsboard.ico);
-  top: 8px;
-  right: 8px;
-  width: 28px;
-  height: 28px;
+  top: 12px;
+  right: 12px;
+  width: 14px;
+  height: 14px;
+  z-index: 1;
   justify-content: center;
   align-items: center;
 }

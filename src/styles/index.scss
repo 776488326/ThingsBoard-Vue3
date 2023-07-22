@@ -1,2 +1,33 @@
-@import "element-plus/theme-chalk/src/index.scss";
-@import './reset.scss';
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors:(
+    'primary': (
+      // 'base': #305680
+    )
+  ),
+  $border-color:(
+    '': #ff6433,
+    'light': #ac6854,
+    'lighter': #f79a7e,
+    'extra-light': #f9c5b5,
+    'dark': #305680,
+    'darker': #2e537b,
+  ),
+  $bg-color: (
+    '': #ffffff,
+    'page': #eee,
+    'overlay': #ffffff,
+  )
+);
+
+// 全局scss变量
+$bg-color: #fff;
+$theme-color: #305680;
+$theme-light-color: #2e537b;
+$second-color: #ff6433;
+$second-light-color: #f79a7e;
+$font-color: #fff;
+$border-radius: 8px;
+$space: 16px;
+$half-space: 8px; 
+$sideBar-width: 250px;
+$header-height: 64px;

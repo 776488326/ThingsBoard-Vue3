@@ -21,7 +21,7 @@
 
 <style lang="scss" scoped>
 :deep(.el-breadcrumb__item:last-child .el-breadcrumb__inner) {
-  color: $loginBtnColor;
+  color: $second-color;
 }
 :deep(.el-breadcrumb__item .el-breadcrumb__inner) {
   display: flex;

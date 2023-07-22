@@ -8,11 +8,19 @@ import dynamicRoutes from '@/router/dynamicRoutes.ts'
     background-color="rgba(0, 0, 0, 0)"
     :router="true"
     :unique-opened="true"
+    active-text-color="#ff6433"
+    text-color="#fff"
   >
     <template v-for="route in dynamicRoutes" :key="route.name">
       <el-sub-menu v-if="route.children" :index="route.name">
         <template #title>
-          <SvgIcon v-if="route.meta.icon" :name="route.meta.icon"></SvgIcon>
+          <SvgIcon
+            width="24px"
+            height="24px"
+            color="#fff"
+            v-if="route.meta.icon"
+            :name="route.meta.icon"
+          ></SvgIcon>
           &nbsp
           <span>{{ route.meta.title }}</span>
         </template>
@@ -22,6 +30,9 @@ import dynamicRoutes from '@/router/dynamicRoutes.ts'
           :key="subroute.path"
         >
           <SvgIcon
+            width="24px"
+            height="24px"
+            color="#fff"
             v-if="subroute.meta.icon"
             :name="subroute.meta.icon"
           ></SvgIcon>
@@ -30,7 +41,13 @@ import dynamicRoutes from '@/router/dynamicRoutes.ts'
         </el-menu-item>
       </el-sub-menu>
       <el-menu-item v-else :index="route.path">
-        <SvgIcon v-if="route.meta.icon" :name="route.meta.icon"></SvgIcon>
+        <SvgIcon
+          width="24px"
+          height="24px"
+          color="#fff"
+          v-if="route.meta.icon"
+          :name="route.meta.icon"
+        ></SvgIcon>
         &nbsp
         <span>{{ route.name }}</span>
       </el-menu-item>

@@ -126,7 +126,7 @@ async function logout() {
         align-items: center;
       }
       .el-dropdown-item {
-        color: $white;
+        color: $theme-color;
       }
     }
   }

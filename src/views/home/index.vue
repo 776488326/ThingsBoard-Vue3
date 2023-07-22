@@ -70,11 +70,13 @@ const cards = [
 
 <template>
   <main id="container">
-    <MiniCard
-      v-for="(card, index) in cards"
-      v-bind="card"
-      :key="index"
-    ></MiniCard>
+    <section id="box">
+      <MiniCard
+        v-for="(card, index) in cards"
+        v-bind="card"
+        :key="index"
+      ></MiniCard>
+    </section>
     <section id="start">
       <MaxCard></MaxCard>
     </section>
@@ -83,50 +85,60 @@ const cards = [
 
 <style scoped lang="scss">
 #container {
-  display: grid;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 1fr 6fr;
-  gap: 16px;
+  height: 100%;
 
-  #total {
-    grid-column: 1;
-    grid-row: 1;
-  }
+  #box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
-  #active {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  #inactive {
-    grid-column: 3;
-    grid-row: 1;
-  }
-
-  #tempperature {
-    grid-column: 4;
-    grid-row: 1;
-  }
-
-  #air {
-    grid-column: 5;
-    grid-row: 1;
-  }
-
-  #charging {
-    grid-column: 6;
-    grid-row: 1;
+    #active,
+    #inactive,
+    #tempperature,
+    #air,
+    #charging {
+      flex: 1;
+      margin-left: $half-space;
+    }
   }
 
   #start {
-    grid-column: 1/7;
-    grid-row: 2;
+    margin-top: 16px;
+    padding: $half-space;
     overflow: hidden;
-    border-radius: $borderRadius;
-    background-color: $white;
-    border: 2px solid $themeLightColor;
+    border: 2px solid $theme-light-color;
+    border-radius: $border-radius;
+  }
+}
+@media screen and (max-width: 1366px) {
+  #container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    #box {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      #total,
+      #active,
+      #inactive,
+      #tempperature,
+      #air,
+      #charging {
+        width: 100%;
+        flex: 1;
+        margin: 4px 0;
+      }
+    }
+    #start {
+      flex: 1;
+    }
   }
 }
 </style>
