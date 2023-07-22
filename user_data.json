@@ -1,1 +1,24 @@
-[{"password":"admin","email":"admin","firstName":"feng","lastName":"liang"},{"firstName":"1","lastName":"1","password":"1","email":"1"},{"firstName":"2","lastName":"1","password":"1","email":"2"},{"firstName":"2","lastName":"1","password":"1","email":"3"},{"firstName":"feng","lastName":"liang","password":"131452","email":"776488326@qq.com"},{"firstName":"test","lastName":"01","password":"123","email":"776488326@qq.com001"},{"firstName":"a","lastName":"b","password":"321","email":"123"}]
+[
+  {
+    "password": "admin",
+    "email": "admin",
+    "firstName": "feng",
+    "lastName": "liang"
+  },
+  { "firstName": "1", "lastName": "1", "password": "1", "email": "1" },
+  { "firstName": "2", "lastName": "1", "password": "1", "email": "2" },
+  { "firstName": "2", "lastName": "1", "password": "1", "email": "3" },
+  {
+    "firstName": "feng",
+    "lastName": "liang",
+    "password": "131452",
+    "email": "776488326@qq.com"
+  },
+  {
+    "firstName": "test",
+    "lastName": "01",
+    "password": "123",
+    "email": "776488326@qq.com001"
+  },
+  { "firstName": "a", "lastName": "b", "password": "321", "email": "123" }
+]

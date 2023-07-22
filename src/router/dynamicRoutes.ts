@@ -222,7 +222,7 @@ export default [
   },
   {
     path: '/notification',
-    component: () => import('@/views/notification/index.vue'),
+    component: () => import('@/views/notification_center/index.vue'),
     name: 'Notification',
     meta: {
       title: '通知中心',
@@ -242,7 +242,7 @@ export default [
   },
   {
     path: '/setting',
-    component: () => import('@/views/setting/index.vue'),
+    component: () => import('@/views/settings/index.vue'),
     name: 'Setting',
     meta: {
       title: '设置',

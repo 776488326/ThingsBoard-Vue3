@@ -1,6 +1,5 @@
 <script setup lang="ts">
-
-type FadeMode = "out-in" | "default" | "in-out" | undefined;
+type FadeMode = 'out-in' | 'default' | 'in-out' | undefined
 
 const props = defineProps({
   name: {
@@ -12,7 +11,6 @@ const props = defineProps({
     type: String as () => FadeMode,
   },
 })
-
 </script>
 
 <template>

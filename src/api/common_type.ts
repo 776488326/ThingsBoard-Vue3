@@ -1,7 +1,7 @@
 export interface Success {
   code: Number
   data: Object | null
-  message?: String
+  message: String
 }
 
 export interface Fail {

@@ -19,11 +19,11 @@ const useStore = userMessageStore()
 const router = useRouter()
 async function logout() {
   let { code, message } = await requestLogout()
-//   export declare type MessageOptions = Partial<Mutable<Omit<MessageProps, 'id'> & {
-//     appendTo?: HTMLElement | string;
-//   }>>;
-//  以上是MessageOptions的类型定义，其中Partial表示将对象属性转为可选
-//  Mutable表示将对象属性转为可变，Omit表示剔除某些属性，appendTo表示追加某些属性
+  //   export declare type MessageOptions = Partial<Mutable<Omit<MessageProps, 'id'> & {
+  //     appendTo?: HTMLElement | string;
+  //   }>>;
+  //  以上是MessageOptions的类型定义，其中Partial表示将对象属性转为可选
+  //  Mutable表示将对象属性转为可变，Omit表示剔除某些属性，appendTo表示追加某些属性
   if (code === 200) {
     ElMessage({
       message,

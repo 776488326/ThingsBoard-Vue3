@@ -1,9 +1,15 @@
 {
   "compilerOptions": {
+    "plugins": [
+      {
+        "name": "vue-tsc",
+        "transform": "vue-tsc"
+      }
+    ],
     "types": ["vite-plugin-svg-icons/client"],
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*", "proxy.conf.ts"]
+      "@/*": ["src/*"]
     },
     "target": "ES2020",
     "useDefineForClassFields": true,

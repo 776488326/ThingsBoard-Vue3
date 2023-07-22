@@ -77,7 +77,7 @@ export default [
     url: '/api' + logout_url,
     method: 'get',
     response({ body }) {
-      return successTemplate(null,{code: 200, message: "注销成功！"})
+      return successTemplate(null, { code: 200, message: '注销成功！' })
     },
   },
 ] as MockMethod[]

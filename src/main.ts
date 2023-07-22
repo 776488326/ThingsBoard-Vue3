@@ -12,7 +12,7 @@ import router from '@/router/index.ts'
 import 'virtual:svg-icons-register'
 
 const app = createApp(App)
-app.config.errorHandler = (err, instance, info) => {
+app.config.errorHandler = (err) => {
   // 自定义全局未捕获错误处理
   console.log(err)
 }

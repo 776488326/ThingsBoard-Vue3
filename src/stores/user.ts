@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { reactive } from 'vue'
-import type { LoginForm, Counter } from '@/api/user/type'
+import type { UserInfo, Counter } from '@/api/user/type'
 import { requestLogin, requestSignUp } from '@/api/index.ts'
 import type { Success, Fail } from '@/api/common_type'
 export const userMessageStore = defineStore('userMessage', () => {
@@ -24,7 +24,7 @@ export const userMessageStore = defineStore('userMessage', () => {
     isAuthenticated,
   })
 
-  async function userLogin(data: LoginForm) {
+  async function userLogin(data: UserInfo) {
     const res: Success | Fail | any = await requestLogin(data)
 
     if (res) {

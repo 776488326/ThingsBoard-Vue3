@@ -9,8 +9,8 @@ const router = createRouter({
 
 router.beforeEach((to) => {
   nprogress.start()
-  const isAuth = JSON.parse(localStorage.getItem("isAuthenticated")||"false");
-  console.log('isAuth',isAuth)
+  const isAuth = JSON.parse(localStorage.getItem('isAuthenticated') || 'false')
+  console.log('isAuth', isAuth)
   if (!isAuth && to.name !== 'Login') {
     console.log('redirect')
     return {

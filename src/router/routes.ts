@@ -5,8 +5,17 @@ declare module 'vue-router' {
     title: String
   }
 }
+type To = {
+  meta: {
+    isShow: Boolean
+  }
+}
+type From = {
+  name: String
+}
 
 import children from './dynamicRoutes.ts'
+import type { RouteRecordRaw } from 'vue-router'
 export default [
   {
     path: '/',
@@ -15,12 +24,12 @@ export default [
     redirect: '/home',
     meta: {
       authorization: ['Admin', 'User', 'Tenant'],
-      isShow: false
+      isShow: false,
     },
     children,
-    beforeEnter: (to, from) => {
-      if(from.name==="Login"){
-        to.meta.isShow = true;
+    beforeEnter: (to: To, from: From) => {
+      if (from.name === 'Login') {
+        to.meta.isShow = true
       }
     },
   },
@@ -47,4 +56,4 @@ export default [
       authorization: ['Admin', 'User', 'Tenant'],
     },
   },
-]
+] as RouteRecordRaw[]
