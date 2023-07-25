@@ -5,12 +5,12 @@
     )
   ),
   $border-color:(
-    '': #ff6433,
-    'light': #ac6854,
-    'lighter': #f79a7e,
-    'extra-light': #f9c5b5,
-    'dark': #305680,
-    'darker': #2e537b,
+    '': #305680,
+    'light': #2e537b,
+    'lighter': #678bb1,
+    'extra-light': #86b7eb,
+    'dark': #ff6433,
+    'darker': #ac6854,
   ),
   $bg-color: (
     '': #ffffff,
@@ -20,13 +20,15 @@
 );
 
 // 全局scss变量
-$bg-color: #fff;
+$bg-color: #eee;
+$page-color: #fff;
 $theme-color: #305680;
 $theme-light-color: #2e537b;
 $second-color: #ff6433;
 $second-light-color: #f79a7e;
 $font-color: #fff;
 $border-radius: 8px;
+$half-border-radius: 4px;
 $space: 16px;
 $half-space: 8px; 
 $sideBar-width: 250px;

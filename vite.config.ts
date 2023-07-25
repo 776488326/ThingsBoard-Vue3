@@ -29,7 +29,7 @@ export default ({ command }: ConfigEnv): UserConfigExport => {
       }),
       viteMockServe({
         mockPath: 'mock',
-        enable: true,
+        enable: false,
       }),
       ElementPlus({
         defaultLocale: 'zh-cn',
