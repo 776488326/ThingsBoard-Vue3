@@ -1,13 +1,91 @@
-<script setup lang="ts"></script>
-
 <template>
-  <div class="container"></div>
+  <main id="container">
+    <CommonTable v-bind=tableProps>
+      <template v-slot:table_head_left="">
+        <section id="filter">
+          <el-popover placement="bottom" trigger="click">
+            <template #reference>
+              <el-button class="m-2" :icon="Filter">
+                Device Filter
+              </el-button>
+            </template>
+          </el-popover>
+        </section>
+      </template>
+      <template v-slot:table_head_right="">
+        <el-icon><Plus /></el-icon>
+      </template>
+    </CommonTable>
+  </main>
 </template>
 
-<style lang="scss" scoped>
-.container {
-  display: flex;
-  background-color: white;
-  flex-direction: column;
+<script setup lang="ts">
+import CommonTable,{ Props } from "@/components/common_table/index.vue";
+import { Filter,Plus } from "@element-plus/icons-vue";
+const tableProps: Props = {
+  tableData: [],
+  columns: [
+    {
+      label: "创建时间",
+      prop: "createTime",
+
+    },
+    {
+      label: "名称",
+      prop: "name"
+    },
+    {
+      label: "设备配置",
+      prop: "config"
+    },
+    {
+      label: "标签",
+      prop: "label"
+    },
+    {
+      label: "State",
+      prop: "state"
+    },
+    {
+      label: "客户",
+      prop: "customr"
+    },
+    {
+      label: "公开",
+      prop: "public"
+    },
+    {
+      label: "是否网关",
+      prop: "gateway"
+    },
+  ],
+  maxHeight: "",
+  name: "设备",
+  expend: false,
+  pagination: {
+    page_size: 10,
+    page_sizes: [10,20,50],
+    total: 21,
+    current_page: 1,
+    layout: "total, sizes, prev, pager, next"
+  },
+  emptyDescription: "未发现设备"
 }
+</script>
+
+<style lang="scss" scoped>
+  #container {
+    width: 100%;
+    height: 100%;
+    background-color: $page-color;
+    padding: $space;
+    .el-icon {
+      color: $second-light-color;
+      font-size: 24px;
+      &:hover{
+        cursor: pointer;
+        color: $second-color;
+      }
+    }
+  }
 </style>

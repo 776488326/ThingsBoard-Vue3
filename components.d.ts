@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    Common_table: typeof import('./src/components/common_table/index.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
@@ -18,6 +19,7 @@ declare module 'vue' {
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
     ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
+    ElEmpty: typeof import('element-plus/es')['ElEmpty']
     ElHeader: typeof import('element-plus/es')['ElHeader']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElInput: typeof import('element-plus/es')['ElInput']
@@ -36,6 +38,9 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     Side_bar_menu: typeof import('./src/components/side_bar_menu/index.vue')['default']
     Svg_icon: typeof import('./src/components/svg_icon/index.vue')['default']
+    Table: typeof import('./src/components/common_table/Table.vue')['default']
+    TableHeader: typeof import('./src/components/common_table/TableHeader.vue')['default']
+    TablePager: typeof import('./src/components/common_table/TablePager.vue')['default']
     Top_breadcrumb: typeof import('./src/components/top_breadcrumb/index.vue')['default']
   }
 }

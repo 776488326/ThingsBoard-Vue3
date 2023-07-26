@@ -114,9 +114,9 @@ export default [
     },
   },
   {
-    path: '/rulechain',
+    path: '/rulechains',
     component: () => import('@/views/rulechain/index.vue'),
-    name: 'Rulechain',
+    name: 'Rulechains',
     meta: {
       title: '规则链库',
       authorization: ['Admin', 'User', 'Tenant'],
