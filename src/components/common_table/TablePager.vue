@@ -1,22 +1,22 @@
 <template>
-    <el-pagination
-      v-model:current-page="pagination.current_page"
-      v-model:page-size="pagination.page_size"
-      :page-sizes="pagination.page_sizes"
-      :small="small"
-      :disabled="disabled"
-      :background="background"
-      :layout="pagination.layout"
-      :total="pagination.total"
-      @size-change="handleSizeChange"
-      @current-change="handleCurrentChange"
-      :hide-on-single-page="true"
-    />
+  <el-pagination
+    v-model:current-page="pagination.current_page"
+    v-model:page-size="pagination.page_size"
+    :page-sizes="pagination.page_sizes"
+    :small="small"
+    :disabled="disabled"
+    :background="background"
+    :layout="pagination.layout"
+    :total="pagination.total"
+    @size-change="handleSizeChange"
+    @current-change="handleCurrentChange"
+    :hide-on-single-page="true"
+  />
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue"
-const emits = defineEmits(["changeSize", "changePage"]);
+import { ref } from 'vue'
+const emits = defineEmits(['changeSize', 'changePage'])
 interface Pager {
   current_page: number
   page_size: number
@@ -25,7 +25,7 @@ interface Pager {
   layout: string
 }
 export interface TablePagerProps {
-    pagination: Pager
+  pagination: Pager
 }
 
 //#region 分页
@@ -36,18 +36,18 @@ const disabled = ref(false)
 
 function handleSizeChange(val: number) {
   console.log('当前每页尺寸为val：', val)
-  emits("changeSize", val)
+  emits('changeSize', val)
 }
 function handleCurrentChange(val: number) {
   console.log('当前页为val：', val)
-  emits("changePage", val)
+  emits('changePage', val)
 }
 
 //#endregion
 </script>
 
 <style lang="scss" scoped>
-    .el-pagination {
-      min-height: 50px;
-    }
+.el-pagination {
+  min-height: 50px;
+}
 </style>

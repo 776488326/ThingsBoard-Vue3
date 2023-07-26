@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import dynamicRoutes from '@/router/dynamicRoutes.ts'
-import { ref } from "vue";
-import { useRoute } from "vue-router"
-let active = ref(useRoute().path);
-function changeAct(){
-  let path:string = [...arguments][1][1];
-  active.value = path;
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+let active = ref(useRoute().path)
+function changeAct() {
+  let path: string = [...arguments][1][1]
+  active.value = path
 }
 </script>
 
