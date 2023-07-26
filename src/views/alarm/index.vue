@@ -50,6 +50,7 @@ const tableProps: Props = {
       prop: 'status',
     },
     {
+      fixed: 'right',
       label: '详情',
       prop: 'detail',
     },

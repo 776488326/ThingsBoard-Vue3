@@ -47,6 +47,7 @@ const tableProps: Props = {
       prop: 'size',
     },
     {
+      fixed: 'right',
       label: '校验和',
       prop: 'check',
     },

@@ -1,5 +1,9 @@
 <template>
-  <el-table :data="tableData" style="width: 100%" :max-height="maxHeight">
+  <el-table
+    :data="tableData"
+    style="width: 100%; height: 100%"
+    :max-height="maxHeight"
+  >
     <el-table-column
       v-for="(column, index) in columns"
       :key="index"
@@ -8,12 +12,7 @@
       :width="column.width"
       :fixed="column.fixed"
     />
-    <el-table-column
-      fixed="right"
-      label="Operations"
-      width="120"
-      :v-if="expend"
-    >
+    <el-table-column v-if="expend" fixed="right" label="操作">
       <slot name="expand"></slot>
     </el-table-column>
     <template v-slot:empty="">
@@ -24,7 +23,7 @@
 
 <script lang="ts" setup>
 export interface Column {
-  fixed?: boolean
+  fixed?: true | 'left' | 'right'
   prop: string
   label: string
   width?: string | number
@@ -48,5 +47,8 @@ withDefaults(defineProps<TableProps>(), {
 <style lang="scss" scoped>
 .el-table {
   height: 100%;
+  :deep(.el-scrollbar__view) {
+    height: 100%;
+  }
 }
 </style>

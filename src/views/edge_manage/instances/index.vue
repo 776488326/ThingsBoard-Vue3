@@ -35,6 +35,7 @@ const tableProps: Props = {
       prop: 'customr',
     },
     {
+      fixed: 'right',
       label: '公开',
       prop: 'public',
     },
