@@ -26,6 +26,7 @@
 :deep(.el-breadcrumb__item .el-breadcrumb__inner) {
   display: flex;
   align-items: center;
+  color: $font-color;
   span {
     margin-left: 8px;
   }
