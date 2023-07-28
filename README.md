@@ -26,3 +26,7 @@
 
 1. yarn
 2. yarn start
+
+### 线上地址
+1. http://182.92.200.59
+2. http://fengliang.link
