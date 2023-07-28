@@ -1,0 +1,2 @@
+import{J as p,a6 as a,a8 as f,a9 as u}from"./index-5157ca21.js";const m=t=>{if(!a(t))return{};const o=t.props||{},e=(a(t.type)?t.type.props:void 0)||{},s={};return Object.keys(e).forEach(r=>{f(e[r],"default")&&(s[r]=e[r].default)}),Object.keys(o).forEach(r=>{s[u(r)]=o[r]}),s},n=t=>{const o=p(t)?t:[t],e=[];return o.forEach(s=>{var r;p(s)?e.push(...n(s)):a(s)&&p(s.children)?e.push(...n(s.children)):(e.push(s),a(s)&&((r=s.component)!=null&&r.subTree)&&e.push(...n(s.component.subTree)))}),e};export{n as f,m as g};
+//# sourceMappingURL=vnode-2586cffd.js.map
